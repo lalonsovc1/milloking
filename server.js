@@ -14,7 +14,7 @@ const app = express();
 const server = createServer(app);
 const wss = new WebSocketServer({ server });
 
-const canal = "matnarok2";
+const canal = "alonso-vc";
 const sacrificables = new Set();
 let socketConectado = null;
 
