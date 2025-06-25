@@ -33,7 +33,13 @@ function enviarSacrificio(mensaje) {
   }
 }
 
-const client = createClient(canal, { readOnly: true });
+const client = createClient(canal, {
+  readOnly: true,
+  puppeteerLaunchOptions: {
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  }
+});
+
 
 client.on("ChatMessage", message => {
   const usuario = message.sender.username;
