@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 3000
 
 # Arranca tu aplicación (ajusta si tu archivo principal no es index.js)
-CMD ["node", "index.js"]
+CMD ["node", "server.js"]
