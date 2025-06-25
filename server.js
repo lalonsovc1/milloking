@@ -2,6 +2,8 @@ import express from "express";
 import { WebSocketServer } from "ws";
 import { createServer } from "http";
 import { createClient } from "@retconned/kick-js";
+import puppeteer from "puppeteer";
+
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -33,33 +35,37 @@ function enviarSacrificio(mensaje) {
   }
 }
 
-const client = createClient(canal, {
-  readOnly: true,
-  puppeteerLaunchOptions: {
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  }
-});
+(async () => {
+  const browser = await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    executablePath: "/usr/bin/chromium"
+  });
 
+  const client = createClient(canal, {
+    readOnly: true,
+    puppeteerInstance: browser
+  });
 
-client.on("ChatMessage", message => {
-  const usuario = message.sender.username;
-  const contenido = message.content.toLowerCase();
+  client.on("ChatMessage", message => {
+    const usuario = message.sender.username;
+    const contenido = message.content.toLowerCase();
 
-  if (contenido.includes("xdd")) {
-    if (!sacrificables.has(usuario)) {
-      sacrificables.add(usuario);
-      console.log(`⚔️ ${usuario} se ha ofrecido como sacrificio.`);
-      enviarSacrificio("ADD:" + usuario);
+    if (contenido.includes("xdd")) {
+      if (!sacrificables.has(usuario)) {
+        sacrificables.add(usuario);
+        console.log(`⚔️ ${usuario} se ha ofrecido como sacrificio.`);
+        enviarSacrificio("ADD:" + usuario);
+      }
     }
-  }
 
-  if (contenido === ":3" && sacrificables.size > 0) {
-    const lista = Array.from(sacrificables);
-    const elegido = lista[Math.floor(Math.random() * lista.length)];
-    console.log(`🔥 El elegido es: ${elegido}`);
-    enviarSacrificio("WINNER:" + elegido);
-    sacrificables.clear();
-  }
-});
+    if (contenido === ":3" && sacrificables.size > 0) {
+      const lista = Array.from(sacrificables);
+      const elegido = lista[Math.floor(Math.random() * lista.length)];
+      console.log(`🔥 El elegido es: ${elegido}`);
+      enviarSacrificio("WINNER:" + elegido);
+      sacrificables.clear();
+    }
+  });
 
-console.log(`🤖 Bot escuchando el canal de ${canal}...`);
+  console.log(`🤖 Bot escuchando el canal de ${canal}...`);
+})();
