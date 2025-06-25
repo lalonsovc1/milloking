@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Milloking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="linea-central"></div>
+
+  <div id="game">
+
+    <!-- Comodines -->
+    <div id="lifelines">
+      <button id="fifty"><img src="sacrificio.png" alt="50/50" style="height: 30px; vertical-align: middle; margin-right: 5px;"></button>
+     <button id="call">
+  <img src="llamada.png" style="height: 30px; vertical-align: middle; margin-right: 5px;">
+
+</button>
+
+<button id="roulette">
+  <img src="ruleta.png" alt="Ruleta" style="height: 30px; vertical-align: middle; margin-right: 5px;">
+
+</button>
+
+<button id="wizard">
+  <img src="mago.png" alt="Mago" style="height: 30px; vertical-align: middle; margin-right: 5px;">
+
+</button>
+      <div id="ruleta-visual" class="ruleta hidden">🎯</div>
+<canvas id="rouletteCanvas" width="300" height="300" style="display:none; position: absolute; left: 50%; top: 35%; transform: translate(-50%, -50%); z-index: 1000;"></canvas>
+
+
+    </div>
+    
+<img id="end-image" src="gameover.gif111.gif" style="display: none; max-width: 1200px; margin: 20px auto; position: relative; top: 200px;"/>
+    <!-- Contenedor pregunta y respuestas -->
+    <div id="qa-container">
+      
+      <!-- Círculos de progreso -->
+      <div class="progress">
+        <div class="circle" id="q1">1</div>
+        <div class="circle" id="q2">2</div>
+        <div class="circle" id="q3">3</div>
+        <div class="circle" id="q4">4</div>
+        <div class="circle" id="q5">5</div>
+        <div class="circle" id="q6">6</div>
+        <div class="circle" id="q7">7</div>
+        <div class="circle" id="q8">8</div>
+        <div class="circle" id="q9">9</div>
+        <div class="circle" id="q10">10</div>
+        <div class="circle" id="q11">11</div>
+        <div class="circle" id="q12">12</div>
+        <div class="circle" id="q13">13</div>
+        <div class="circle" id="q14">14</div>
+        <div class="circle" id="q15">15</div>
+      </div>
+
+      <!-- Pregunta -->
+      <div class="question">
+        <p id="question-text"></p>
+      </div>
+
+      <!-- Respuestas 2x2 -->
+      <div class="answers">
+        <div id="pre1" class="answer"><span></span></div>
+        <div id="pre2" class="answer"><span></span></div>
+        <div id="pre3" class="answer"><span></span></div>
+        <div id="pre4" class="answer"><span></span></div>
+      </div>
+    </div>
+
+    <!-- Timer y resultado -->
+  
+    <div id="result" class="hidden"></div>
+
+  </div>
+  
+</div>
+
+<div id="callContainer" style=" text-align: center;">
+  <div id="call-timer" style="display: none;"></div>
+  <img id="callImage" src="callglohuevo.gif" style="display: none; width: 300px ; margin: 20px auto; position: relative; top: 1px;"/>
+</div>
+  <!-- Contenedor que incluye el contador y la imagen -->
+<img id="magiaImage" src="magia.gif" style="display: none; width: 300px ; margin: 20px auto; position: relative; top: -650px;"/>
+
+
+<!-- Lista de participantes -->
+<div id="lista-sacrificables" style="
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  width: 300px;
+  font-size: 18px;
+  display: none;
+  text-align: center;
+  z-index: 999;
+">
+  <strong>Participantes:</strong>
+
+  <!-- CUADRO CON SCROLL SEPARADO -->
+  <div id="sacrificio-scroll" style="max-height: 150px; overflow-y: auto; margin-top: 10px;">
+    <ul id="sacrificio-lista" style="list-style: none; padding: 0; margin: 0;"></ul>
+  </div>
+
+  <!-- GIF abajo -->
+  <img src="dnote.gif" style="margin-top: 15px; width: 100%; border-radius: 10px;" />
+</div>
+
+
+
+
+
+
+<div id="progressPanel" style="display:none; position:fixed; top:50px; left:10px;  padding:10px; border-radius:8px; max-height:90vh; overflow-y:auto; width:180px; color:white; font-family:sans-serif; box-shadow:0 0 10px #000;">
+  <h3 style="text-align:center; margin-bottom:10px;">Recompensas</h3>
+  <div class="progress-vertical">
+    <!-- Aquí se generarán los círculos con recompensas -->
+  </div>
+</div>
+  <script src="script.js">
+    
+  </script>
+</body>
+</html>

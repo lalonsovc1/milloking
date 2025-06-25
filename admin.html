@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Panel Admin - Milloking</title>
+  <style>
+    body {
+      background: #121212;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h2, h3 {
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+
+    #admin-question {
+      font-size: 1.3em;
+      margin-bottom: 10px;
+    }
+
+    ul#admin-answers {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul#admin-answers li {
+      padding: 8px 12px;
+      margin: 4px 0;
+      background-color: #1f1f1f;
+      border-radius: 6px;
+    }
+
+    li.correct {
+      color: lime;
+      font-weight: bold;
+      border: 1px solid lime;
+    }
+
+    #admin-description {
+      font-style: italic;
+      color: #bbb;
+      margin-top: 8px;
+    }
+
+    .comodines {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .comodines button {
+      flex: 1 1 calc(50% - 10px);
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      background-color: #333;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .comodines button:hover {
+      background-color: #555;
+    }
+
+    #admin-progress {
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>📋 Pregunta Actual</h2>
+  <div id="admin-question">Cargando pregunta...</div>
+  <ul id="admin-answers"></ul>
+  <div id="admin-description"></div>
+
+  <h3>🎁 Regalar Comodín</h3>
+  <div class="comodines">
+    <button onclick="regalarComodin('fifty')">🌓 50/50</button>
+    <button onclick="regalarComodin('call')">📞 Llamada</button>
+    <button onclick="regalarComodin('roulette')">🎯 Ruleta</button>
+    <button onclick="regalarComodin('wizard')">🧙‍♂️ Mago</button>
+  </div>
+
+<h2 style="text-align: center; margin-bottom: 10px; font-family: sans-serif; color: #fff;">🎁 Editar Recompensas</h2>
+
+<div id="rewardsAdminContainer" style="
+  max-height: 350px;
+  overflow-y: auto;
+  background: #1e1e1e;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+  width: 100%;
+">
+</div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

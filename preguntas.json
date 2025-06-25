@@ -1,0 +1,46 @@
+[
+  {
+    "question": "¿Cuál es el océano más grande del mundo?",
+    "answers": [
+      "Atlántico",
+      "Índico",
+      "Ártico",
+      "Pacífico"
+    ],
+    "correct": 3,
+    "description": "El océano Pacífico es el más grande del mundo, cubriendo más de 63 millones de kilómetros cuadrados. Se extiende desde Asia y Australia hasta América, y contiene muchas islas y archipiélagos."
+  },
+  {
+    "question": "¿Qué planeta es conocido como el planeta rojo?",
+    "answers": [
+      "Marte",
+      "Venus",
+      "Júpiter",
+      "Saturno"
+    ],
+    "correct": 0,
+    "description": "Marte es conocido como el planeta rojo debido al óxido de hierro (herrumbre) en su superficie, que le da ese característico color rojizo visible desde la Tierra."
+  },
+  {
+    "question": "¿En qué país se encuentra la Torre Eiffel?",
+    "answers": [
+      "Italia",
+      "Francia",
+      "España",
+      "Alemania"
+    ],
+    "correct": 1,
+    "description": "La Torre Eiffel está ubicada en París, Francia. Es uno de los monumentos más icónicos del mundo y fue construida en 1889 para la Exposición Universal."
+  },
+  {
+    "question": "¿Quién escribió 'Cien años de soledad'?",
+    "answers": [
+      "Pablo Neruda",
+      "Gabriel García Márquez",
+      "Mario Vargas Llosa",
+      "Isabel Allende"
+    ],
+    "correct": 1,
+    "description": "Gabriel García Márquez, escritor colombiano y premio Nobel de Literatura, escribió 'Cien años de soledad', una obra clave del realismo mágico publicada en 1967."
+  }
+]

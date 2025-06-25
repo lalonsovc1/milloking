@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sacrificio</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #nombre {
+      font-size: 48px;
+      color: red;
+      animation: aparecer 1s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes aparecer {
+      to { opacity: 1; transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+  <div id="nombre">Esperando sacrificio...</div>
+
+  <script>
+    const socket = new WebSocket("ws://" + location.host);
+
+    socket.onmessage = function(event) {
+      const nombre = event.data;
+      const div = document.getElementById("nombre");
+      div.textContent = `🔥 ${nombre.toUpperCase()} ha sido sacrificado 🔥`;
+      div.style.animation = "none";
+      void div.offsetWidth; // Reiniciar animación
+      div.style.animation = "aparecer 1s ease-in-out forwards";
+    };
+  </script>
+</body>
+</html>
